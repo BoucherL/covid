@@ -9,7 +9,7 @@ try{
 
     $bdd = new PDO('mysql:host=mysql-boucher.alwaysdata.net;dbname=boucher_covid',$user,$mdp);
 }catch(Exception $e){
-    echo $e->getMessage();
+    $errormsg .= $e->getMessage();
 }
 //session
 if(!is_null($bdd)){

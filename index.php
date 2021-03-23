@@ -11,7 +11,8 @@ include "fonction.php";
     <title>Test covid</title>
 </head>
 <body>
-<?php    
+<?php
+    include "fonction.php";
     if($access){
         
         echo "BIENVENUE SUR MON SITE";
