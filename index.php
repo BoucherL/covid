@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "fonction.php";
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +11,15 @@
     <title>Test covid</title>
 </head>
 <body>
-    <?php
-    echo "coucou";
-    ?>
+<?php    
+    if($access){
+        
+        echo "BIENVENUE SUR MON SITE";
+
+    }else{
+        echo "Marche pas";
+        echo $errormsg;
+    }
+?>
 </body>
 </html>
