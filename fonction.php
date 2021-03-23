@@ -65,7 +65,7 @@ function afficheFormulaireConnexion(){
     $access = false;
     if( isset($_POST["login"]) && isset($_POST["password"])){
         //verif mdp en BDD
-        $Result = $mabase->query("SELECT * FROM `User` WHERE `Nom`='".$_POST['login']."' AND `Motdepasse` = '".$_POST['password']."'");
+        $Result = $bdd->query("SELECT * FROM `User` WHERE `Nom`='".$_POST['login']."' AND `Motdepasse` = '".$_POST['password']."'");
         if($tab = $Result->fetch()){ 
         //si mdp = ok
         $access = true;
