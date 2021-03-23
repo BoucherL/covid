@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "fonction.php";
  ?>
 <!DOCTYPE html>
 <html lang="en">
