@@ -27,7 +27,7 @@ if(!is_null($bdd)){
     $errormsg.="Vous n'avez pas accés à la base";
 }
 
-function afficheFormulaireLogout(){
+function afficheFormulaireLogout($bdd){
     //traitement du formulaire
     $afficheForm = true;
     $access = true;
@@ -65,18 +65,25 @@ function afficheFormulaireConnexion(){
     $access = false;
     if( isset($_POST["login"]) && isset($_POST["password"])){
         //verif mdp en BDD
-
+        $Result = $mabase->query("SELECT * FROM `User` WHERE `login`='".$_POST['login']."' AND `mdp` = '".$_POST['password']."'");
+        if($tab = $Result->fetch()){ 
         //si mdp = ok
         $access = true;
         $_SESSION["Connected"]=true;
         $afficheForm = false;
         //si on est co on affiche le formulaire de deco
-        afficheFormulaireLogout();
+        afficheFormulaireLogout($bdd);
 
     }else{
         $afficheForm = true;
     }
     
+
+}else{
+    $afficheForm = true;
+}
+
+
     if($afficheForm){
     ?>
         <form action="" method="post" >
