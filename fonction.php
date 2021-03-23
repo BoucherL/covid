@@ -36,7 +36,7 @@ function afficheFormulaireLogout($bdd){
         $_SESSION["Connected"]=false;
         session_unset();
         session_destroy();
-        afficheFormulaireConnexion();
+        afficheFormulaireConnexion($bdd);
         $afficheForm = false;
         $access = false;
     }else{
