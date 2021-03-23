@@ -59,7 +59,7 @@ function afficheFormulaireLogout($bdd){
 }
 
 
-function afficheFormulaireConnexion(){
+function afficheFormulaireConnexion($bdd){
 
     //traitement du formulaire
     $access = false;
