@@ -16,12 +16,12 @@ if(!is_null($bdd)){
     echo "Connecter";
     if (isset($_SESSION["Connected"]) && $_SESSION["Connected"] === true){
         $access = true;
-        $access = afficheFormulaireLogout();
+        $access = afficheFormulaireLogout($bdd);
     }else{
         $access = false;
         $errormsg.= "Vous devez vous connecter";
         //affichage formulaire si pas de connexion session
-        $access = afficheFormulaireConnexion();
+        $access = afficheFormulaireConnexion($bdd);
     }
 }else{
     $errormsg.="Vous n'avez pas accés à la base";
@@ -47,7 +47,7 @@ function afficheFormulaireLogout($bdd){
     ?>
         <form action="" method="post" >
             <div >
-                <input type="submit" value="Deco!" name="logout">
+                <input type="submit" value="Se Déconnecter" name="logout">
             </div>
         </form>
 
@@ -88,15 +88,15 @@ function afficheFormulaireConnexion(){
     ?>
         <form action="" method="post" >
             <p>
-                <label for="login">Enter your login: </label>
+                <label for="login">Nom: </label>
                 <input type="text" name="login" id="login" required>
             </p>
             <p>
-                <label for="password">Enter your pass: </label>
+                <label for="password">Mot de passe: </label>
                 <input type="password" name="password" id="password" required>
             </p>
             <p>
-                <input type="submit" value="Go!" >
+                <input type="submit" value="Se connecter" >
             </p>
         </form>
 
